@@ -1,26 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { SkeletonChat } from '../components/UI/Skeleton';
-import useChatStore from '../store/chatSlice';
+
 import './ChatListPage.css';
 
-const DEMO_CHATS = [
-  {
-    id: 1, name: 'Amara', lastMessage: 'That sounds amazing! Tell me more...', time: '2m',
-    unread: 2, online: true,
-    avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop',
-  },
-  {
-    id: 2, name: 'Kwame', lastMessage: 'When are you free to chat?', time: '1h',
-    unread: 0, online: true,
-    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop',
-  },
-  {
-    id: 3, name: 'Fatima', lastMessage: 'I love that poem you shared ✨', time: '3h',
-    unread: 0, online: false,
-    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop',
-  },
-];
+const DEMO_CHATS = [];
 
 export default function ChatListPage() {
   const navigate = useNavigate();

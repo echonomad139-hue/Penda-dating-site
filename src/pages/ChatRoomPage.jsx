@@ -1,21 +1,11 @@
-import { useState, useRef, useEffect, useMemo } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, Send, Smile } from 'lucide-react';
 import './ChatRoomPage.css';
 
-const DEMO_CONTACTS = {
-  1: { name: 'Amara', avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop', online: true },
-  2: { name: 'Kwame', avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop', online: true },
-  3: { name: 'Fatima', avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop', online: false },
-};
+const DEMO_CONTACTS = {};
 
-const DEMO_MESSAGES = [
-  { id: 1, sender: 'them', text: 'Hey! I loved your profile. What brings you to PENDA?', time: '2:30 PM' },
-  { id: 2, sender: 'me', text: 'Thanks! I\'m looking for real connections across Africa. Your photography is beautiful btw!', time: '2:32 PM' },
-  { id: 3, sender: 'them', text: 'That means so much! I capture stories through my lens. Where are you based?', time: '2:33 PM' },
-  { id: 4, sender: 'me', text: 'I\'m in Nairobi! You?', time: '2:35 PM' },
-  { id: 5, sender: 'them', text: 'Mombasa! So close 😊 That sounds amazing! Tell me more...', time: '2:36 PM' },
-];
+const DEMO_MESSAGES = [];
 
 export default function ChatRoomPage() {
   const navigate = useNavigate();
@@ -25,7 +15,7 @@ export default function ChatRoomPage() {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const contact = DEMO_CONTACTS[id] || DEMO_CONTACTS[1];
+  const contact = DEMO_CONTACTS[id] || { name: 'Unknown', avatar: '', online: false };
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { Heart, X, MessageCircle, Mic, MapPin, Shield, Clock } from 'lucide-react';
 import Button from '../components/UI/Button';
 import { SkeletonCard } from '../components/UI/Skeleton';
@@ -6,29 +6,7 @@ import { ICEBREAKER_QUESTIONS } from '../config';
 import './DiscoverPage.css';
 
 // Demo profiles for frontend display
-const DEMO_PROFILES = [
-  {
-    id: 1, name: 'Amara', age: 26, country: 'Kenya', continent: 'Africa',
-    bio: 'Storyteller. Coffee lover. I believe every person has a chapter worth reading.',
-    interests: ['Travel', 'Photography', 'Music', 'Coffee'],
-    verified: true, joinedAgo: '2 months ago', activeRecently: true,
-    photo: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=800&fit=crop',
-  },
-  {
-    id: 2, name: 'Kwame', age: 29, country: 'Ghana', continent: 'Africa',
-    bio: 'Engineer by day, musician by night. Building bridges — literally and figuratively.',
-    interests: ['Guitar', 'Engineering', 'Hiking', 'Cooking'],
-    verified: true, joinedAgo: '3 months ago', activeRecently: true,
-    photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop',
-  },
-  {
-    id: 3, name: 'Fatima', age: 24, country: 'Morocco', continent: 'Africa',
-    bio: 'Architect who sketches dreams. Looking for conversations deeper than small talk.',
-    interests: ['Art', 'Architecture', 'Poetry', 'Tea'],
-    verified: false, joinedAgo: '1 month ago', activeRecently: false,
-    photo: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=800&fit=crop',
-  },
-];
+const DEMO_PROFILES = [];
 
 export default function DiscoverPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,10 +20,10 @@ export default function DiscoverPage() {
   const profiles = DEMO_PROFILES;
   const currentProfile = profiles[currentIndex];
 
-  const randomQuestions = useMemo(() => {
+  const [randomQuestions] = useState(() => {
     const shuffled = [...ICEBREAKER_QUESTIONS].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, 3);
-  }, [currentIndex]);
+  });
 
   const handleSwipe = useCallback((direction) => {
     setSwipeDir(direction);

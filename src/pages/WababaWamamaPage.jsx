@@ -3,23 +3,7 @@ import usePremiumStore from '../store/premiumSlice';
 import Button from '../components/UI/Button';
 import './WababaWamamaPage.css';
 
-const DEMO_SPECIALS = [
-  {
-    id: 1, name: 'Grace', age: 45, type: 'wamama', country: 'Nigeria',
-    bio: 'Life taught me patience. Now I seek genuine companionship.',
-    photo: 'https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=400&h=500&fit=crop',
-  },
-  {
-    id: 2, name: 'Joseph', age: 52, type: 'wababa', country: 'Tanzania',
-    bio: 'Retired pilot. Still exploring, but this time looking for a co-pilot for life.',
-    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop',
-  },
-  {
-    id: 3, name: 'Margaret', age: 48, type: 'wamama', country: 'Kenya',
-    bio: 'Teacher, mother, dreamer. Still believing in butterflies.',
-    photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop',
-  },
-];
+const DEMO_SPECIALS = [];
 
 export default function WababaWamamaPage() {
   const { tier, openUpgradeModal } = usePremiumStore();
