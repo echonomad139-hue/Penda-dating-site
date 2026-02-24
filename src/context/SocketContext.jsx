@@ -14,8 +14,10 @@ export default function SocketProvider({ children }) {
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
 
   useEffect(() => {
-    if (!isAuthenticated || !token) {
-      // Disconnect any existing socket when not authenticated
+    // Only connect when authenticated AND a real API URL is configured
+    const API_URL = import.meta.env.VITE_API_URL;
+    if (!isAuthenticated || !token || !API_URL) {
+      // No backend URL configured — skip socket connection silently
       if (socket) {
         socket.disconnect();
         setSocket(null);
@@ -23,7 +25,6 @@ export default function SocketProvider({ children }) {
       return;
     }
 
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
     const newSocket = io(API_URL, {
       auth: { token },
       transports: ['websocket', 'polling'],
