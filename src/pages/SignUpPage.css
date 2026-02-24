@@ -1,0 +1,192 @@
+.signup-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px 40px;
+  animation: fade-in 0.4s ease forwards;
+}
+
+.signup-page > * {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Intention Selector */
+.signup-page__intentions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 48vh;
+  overflow-y: auto;
+  padding: 4px;
+  margin-bottom: 8px;
+  /* Custom scrollbar for webkit and standard properties for modern browsers */
+}
+
+/* @supports rule bypasses the compatibility warning in some IDEs while keeping Firefox support */
+@supports (scrollbar-width: thin) {
+  .signup-page__intentions {
+    scrollbar-width: thin;
+  }
+}
+
+@supports (scrollbar-color: auto) {
+  .signup-page__intentions {
+    scrollbar-color: var(--color-terracotta) var(--color-sand);
+  }
+}
+
+.signup-page__intentions::-webkit-scrollbar {
+  width: 6px;
+}
+.signup-page__intentions::-webkit-scrollbar-track {
+  background: transparent;
+}
+.signup-page__intentions::-webkit-scrollbar-thumb {
+  background-color: var(--color-sand-dark);
+  border-radius: 10px;
+}
+
+.signup-page__intention-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--color-warm-white);
+  border: 1.5px solid var(--color-sand-dark);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-body);
+  text-align: left;
+}
+
+.signup-page__intention-btn:hover {
+  border-color: rgba(181, 72, 94, 0.4);
+  background: var(--color-sand);
+}
+
+.signup-page__intention-btn.active {
+  border-color: var(--color-terracotta);
+  background: rgba(181, 72, 94, 0.08);
+  box-shadow: 0 4px 12px rgba(181, 72, 94, 0.1);
+}
+
+.signup-page__intention-emoji {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.signup-page__intention-label {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+.signup-page__error {
+  font-size: 0.75rem;
+  color: var(--color-danger);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Sun Arc Progress */
+.signup-page__progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.signup-page__arc {
+  width: 120px;
+  height: 65px;
+}
+
+.signup-page__arc-fill {
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.signup-page__sun {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 6px rgba(201, 162, 39, 0.5));
+}
+
+.signup-page__step-label {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  font-weight: 500;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Header */
+.signup-page__header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.signup-page__title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-charcoal);
+  margin-bottom: 6px;
+}
+
+.signup-page__subtitle {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+/* Form */
+.signup-page__form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-page__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.signup-page__pass-wrapper {
+  position: relative;
+}
+
+.signup-page__eye {
+  position: absolute;
+  right: 14px;
+  top: 38px;
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+/* Actions */
+.signup-page__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* Footer */
+.signup-page__footer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.signup-page__link {
+  color: var(--color-terracotta);
+  font-weight: 600;
+}

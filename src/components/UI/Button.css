@@ -1,0 +1,103 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 10px;
+  letter-spacing: 0.01em;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Variants */
+.btn--primary {
+  background: var(--color-terracotta);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(164, 74, 63, 0.25);
+}
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-terracotta-dark);
+  box-shadow: 0 4px 12px rgba(164, 74, 63, 0.35);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-terracotta);
+  border: 1.5px solid var(--color-terracotta);
+}
+.btn--secondary:hover:not(:disabled) {
+  background: rgba(164, 74, 63, 0.06);
+}
+
+.btn--gold {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(201, 162, 39, 0.3);
+}
+.btn--gold:hover:not(:disabled) {
+  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.45);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-charcoal-light);
+}
+.btn--ghost:hover:not(:disabled) {
+  background: rgba(31, 31, 31, 0.04);
+}
+
+/* Sizes */
+.btn--sm { padding: 8px 16px; font-size: 0.8125rem; }
+.btn--md { padding: 12px 24px; font-size: 0.9375rem; }
+.btn--lg { padding: 16px 32px; font-size: 1.0625rem; }
+.btn--full { width: 100%; }
+
+/* Disabled */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Ripple */
+.btn__ripple {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: btn-ripple 0.5s ease-out;
+  pointer-events: none;
+}
+
+@keyframes btn-ripple {
+  to { transform: scale(80); opacity: 0; }
+}
+
+/* Loader */
+.btn__loader {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btn-spin 0.6s linear infinite;
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* ========================================
+   PENDA Design System
+   Africa-Rooted, Globally Elegant
+   ======================================== */
+
+@theme {
+  /* Color System — Warm Rose + Cultural Heritage */
+  --color-terracotta: #B5485E;
+  --color-terracotta-light: #D4687D;
+  --color-terracotta-dark: #8E3447;
+  --color-gold: #C9A227;
+  --color-gold-light: #D4B94E;
+  --color-gold-dark: #A8861E;
+  --color-sand: #FBF5F0;
+  --color-sand-dark: #F0E4DB;
+  --color-charcoal: #1F1F1F;
+  --color-charcoal-light: #3A3A3A;
+  --color-warm-white: #FDF9F7;
+  --color-muted: #8A7E76;
+  --color-success: #4A7C59;
+  --color-danger: #C94050;
+  --color-premium-bg: #1A1216;
+  --color-premium-surface: #2A1E24;
+
+  /* Shadows */
+  --shadow-card: 0 2px 8px rgba(31, 31, 31, 0.08);
+  --shadow-card-hover: 0 4px 16px rgba(31, 31, 31, 0.12);
+  --shadow-elevated: 0 8px 24px rgba(31, 31, 31, 0.1);
+  --shadow-soft: 0 1px 3px rgba(31, 31, 31, 0.06);
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Fonts */
+  --font-heading: "Playfair Display", "Georgia", serif;
+  --font-body: "Inter", "system-ui", sans-serif;
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+/* ========================================
+   Global Reset & Base Styles
+   ======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background-color: var(--color-sand);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle woven fabric texture overlay on body */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(31, 31, 31, 0.1) 2px,
+      rgba(31, 31, 31, 0.1) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(31, 31, 31, 0.1) 2px,
+      rgba(31, 31, 31, 0.1) 3px
+    );
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-charcoal);
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--color-charcoal-light);
+}
+
+a {
+  color: var(--color-terracotta);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-smooth);
+}
+
+a:hover {
+  color: var(--color-terracotta-dark);
+}
+
+/* ========================================
+   Scrollbar (thin, warm)
+   ======================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-sand-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: var(--radius-full);
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.glass-effect {
+  background: rgba(245, 239, 230, 0.7);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 239, 230, 0.3);
+}
+
+.frosted-premium {
+  background: rgba(26, 22, 18, 0.85);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(201, 162, 39, 0.12) 40%,
+    rgba(201, 162, 39, 0.25) 50%,
+    rgba(201, 162, 39, 0.12) 60%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slow-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s var(--ease-smooth) forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s var(--ease-smooth) forwards;
+}
+
+/* ========================================
+   Skeleton Loader
+   ======================================== */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-sand-dark) 25%,
+    var(--color-sand) 50%,
+    var(--color-sand-dark) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ========================================
+   Mobile-first layout
+   ======================================== */
+.app-container {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 420px;
+  }
+}

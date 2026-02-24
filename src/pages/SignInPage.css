@@ -1,0 +1,79 @@
+.signin-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  animation: fade-in 0.5s ease forwards;
+}
+
+.signin-page__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.signin-page__logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-terracotta);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 12px rgba(181, 72, 94, 0.25);
+}
+
+.signin-page__title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--color-charcoal);
+  margin-bottom: 4px;
+}
+
+.signin-page__subtitle {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.signin-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.signin-page__pass-wrapper {
+  position: relative;
+}
+
+.signin-page__eye {
+  position: absolute;
+  right: 14px;
+  top: 38px;
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.signin-page__footer {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.signin-page__link {
+  color: var(--color-terracotta);
+  font-weight: 600;
+}

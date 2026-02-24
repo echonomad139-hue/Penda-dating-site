@@ -1,0 +1,138 @@
+.chat-list {
+  min-height: 100vh;
+}
+
+.chat-list__header {
+  padding: 20px 20px 8px;
+}
+
+.chat-list__title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-charcoal);
+}
+
+.chat-list__search {
+  position: relative;
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
+
+.chat-list__search-icon {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-muted);
+}
+
+.chat-list__search-input {
+  width: 100%;
+  padding: 11px 16px 11px 40px;
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background: var(--color-sand-dark);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+.chat-list__search-input::placeholder {
+  color: var(--color-muted);
+}
+
+/* Items */
+.chat-list__items {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-list__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font-family: var(--font-body);
+  transition: background 0.15s ease;
+}
+
+.chat-list__item:hover {
+  background: rgba(31, 31, 31, 0.02);
+}
+
+.chat-list__avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.chat-list__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-list__online-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-success);
+  border: 2.5px solid var(--color-sand);
+  box-shadow: 0 0 6px rgba(74, 124, 89, 0.4);
+}
+
+.chat-list__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.chat-list__name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+}
+
+.chat-list__time {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  flex-shrink: 0;
+}
+
+.chat-list__message {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat-list__unread {
+  flex-shrink: 0;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--color-terracotta);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}

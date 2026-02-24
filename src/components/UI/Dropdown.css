@@ -1,0 +1,47 @@
+.dropdown-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.dropdown-group__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+}
+
+.dropdown-group__select {
+  width: 100%;
+  padding: 13px 16px;
+  font-size: 0.9375rem;
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background: var(--color-warm-white);
+  border: 1.5px solid var(--color-sand-dark);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7168' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dropdown-group__select:focus {
+  border-color: var(--color-terracotta);
+  box-shadow: 0 0 0 3px rgba(164, 74, 63, 0.08);
+}
+
+/* Error state */
+.dropdown-group--error .dropdown-group__select {
+  border-color: var(--color-danger);
+}
+
+.dropdown-group__error {
+  font-size: 0.8125rem;
+  color: var(--color-danger);
+  font-family: var(--font-body);
+}

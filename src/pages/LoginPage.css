@@ -1,0 +1,140 @@
+.landing {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.landing__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    #C0392B 0%,
+    #E74C3C 20%,
+    #D44A6A 45%,
+    #B5485E 60%,
+    #E8836B 80%,
+    #D4A05A 100%
+  );
+  background-size: 300% 300%;
+  animation: landing-gradient 12s ease infinite;
+}
+
+@keyframes landing-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.landing__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px 32px;
+  max-width: 400px;
+  width: 100%;
+  animation: fade-in 0.8s ease forwards;
+}
+
+/* Heart Logo Ring */
+.landing__logo-ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.landing__title {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 8px;
+  margin-bottom: 6px;
+}
+
+.landing__tagline {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.landing__desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+/* CTAs */
+.landing__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.landing__btn {
+  width: 100%;
+  padding: 15px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+}
+
+.landing__btn:active {
+  transform: scale(0.97);
+}
+
+.landing__btn--primary {
+  background: rgba(255, 255, 255, 0.95);
+  color: #C0392B;
+  border: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.landing__btn--primary:hover {
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+}
+
+.landing__btn--outline {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+
+.landing__btn--outline:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Terms */
+.landing__terms {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.4;
+}
+
+.landing__terms a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+}
