@@ -1,10 +1,9 @@
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   width: 100%;
-  max-width: 480px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -51,8 +50,9 @@
   letter-spacing: 0.02em;
 }
 
+/* Hide bottom nav on tablet and above (side nav takes over) */
 @media (min-width: 768px) {
   .bottom-nav {
-    max-width: 420px;
+    display: none;
   }
 }

@@ -30,7 +30,7 @@ export default function SettingsPage() {
   };
 
   const menuItems = [
-    { icon: User, label: 'Edit Profile', onClick: () => navigate('/profile-setup') },
+    { icon: User, label: 'Edit Profile', onClick: () => navigate('/edit-profile') },
     { icon: Globe, label: `Language (${language})`, onClick: () => setActiveModal('language') },
     { icon: Bell, label: 'Notifications', toggle: notifications, onToggle: () => setNotifications(!notifications) },
     { icon: Shield, label: 'Privacy & Safety', onClick: () => setActiveModal('privacy') },

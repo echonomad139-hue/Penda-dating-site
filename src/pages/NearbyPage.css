@@ -155,3 +155,20 @@
   color: var(--color-terracotta);
   font-weight: 500;
 }
+
+/* Responsive */
+@media (min-width: 768px) {
+  .nearby-page {
+    padding: 24px;
+  }
+  .nearby-page__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nearby-page__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

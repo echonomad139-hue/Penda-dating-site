@@ -184,3 +184,33 @@
   color: #fff;
   box-shadow: 0 2px 8px rgba(164, 74, 63, 0.25);
 }
+
+/* Empty conversation hint */
+.chat-room__empty-hint {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.chat-room__empty-hint p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  padding: 40px 20px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .chat-room__bubble {
+    max-width: 60%;
+  }
+  .chat-room__messages {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chat-room__bubble {
+    max-width: 50%;
+  }
+}

@@ -372,3 +372,52 @@
   color: var(--color-sand-dark);
   margin-bottom: 8px;
 }
+
+/* Header right section */
+.discover-page__header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.discover-page__filter-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-sand-dark);
+  border: none;
+  color: var(--color-charcoal-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+.discover-page__filter-btn:hover {
+  background: var(--color-terracotta);
+  color: #fff;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .discover-page {
+    padding: 24px;
+  }
+  .discover-card__photo {
+    height: 440px;
+  }
+  .discover-page__questions {
+    bottom: 24px;
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .discover-page {
+    padding: 32px;
+    max-width: 600px;
+  }
+  .discover-card__photo {
+    height: 500px;
+  }
+}

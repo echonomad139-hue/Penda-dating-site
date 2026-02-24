@@ -1,14 +1,19 @@
 import { useState, useCallback, useRef } from 'react';
-import { Heart, X, MessageCircle, Mic, MapPin, Shield, Clock } from 'lucide-react';
-import Button from '../components/UI/Button';
+import { useNavigate } from 'react-router-dom';
+import { Heart, X, MessageCircle, Mic, MapPin, Shield, Clock, SlidersHorizontal } from 'lucide-react';
 import { SkeletonCard } from '../components/UI/Skeleton';
+import MatchModal from '../components/UI/MatchModal';
+import FilterModal from '../components/UI/FilterModal';
+import FullProfileModal from '../components/UI/FullProfileModal';
+import EmptyState from '../components/UI/EmptyState';
 import { ICEBREAKER_QUESTIONS } from '../config';
 import './DiscoverPage.css';
 
-// Demo profiles for frontend display
+// Profiles will come from the API; empty for now
 const DEMO_PROFILES = [];
 
 export default function DiscoverPage() {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading] = useState(false);
   const [showQuestion, setShowQuestion] = useState(false);
@@ -16,6 +21,13 @@ export default function DiscoverPage() {
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const startPos = useRef({ x: 0, y: 0 });
+
+  // New modal states
+  const [showMatch, setShowMatch] = useState(false);
+  const [matchedProfile, setMatchedProfile] = useState(null);
+  const [showFilters, setShowFilters] = useState(false);
+  const [showFullProfile, setShowFullProfile] = useState(false);
+  const [filters, setFilters] = useState({ ageRange: [18, 50], distance: 50, gender: 'All' });
 
   const profiles = DEMO_PROFILES;
   const currentProfile = profiles[currentIndex];
@@ -28,12 +40,17 @@ export default function DiscoverPage() {
   const handleSwipe = useCallback((direction) => {
     setSwipeDir(direction);
     setTimeout(() => {
-      setCurrentIndex((i) => Math.min(i + 1, profiles.length - 1));
+      // Simulate a match on a "like" (20% chance)
+      if (direction === 'right' && currentProfile && Math.random() < 0.2) {
+        setMatchedProfile(currentProfile);
+        setShowMatch(true);
+      }
+      setCurrentIndex((i) => Math.min(i + 1, profiles.length));
       setSwipeDir(null);
       setDragOffset({ x: 0, y: 0 });
       setShowQuestion(false);
     }, 300);
-  }, [profiles.length]);
+  }, [profiles.length, currentProfile]);
 
   const handleDragStart = (e) => {
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -77,12 +94,24 @@ export default function DiscoverPage() {
       <div className="discover-page">
         <div className="discover-page__header">
           <h2 className="discover-page__title">Discover</h2>
+          <button className="discover-page__filter-btn" onClick={() => setShowFilters(true)}>
+            <SlidersHorizontal size={18} />
+          </button>
         </div>
-        <div className="discover-page__empty">
-          <Heart size={48} className="discover-page__empty-icon" />
-          <h3>No more profiles</h3>
-          <p>Check back later for new connections</p>
-        </div>
+        <EmptyState
+          icon={Heart}
+          title="No more profiles"
+          message="Adjust your filters or check back later for new connections near you."
+          action={() => setShowFilters(true)}
+          actionLabel="Adjust Filters"
+        />
+        {showFilters && (
+          <FilterModal
+            onClose={() => setShowFilters(false)}
+            onApply={(f) => setFilters(f)}
+            initialFilters={filters}
+          />
+        )}
       </div>
     );
   }
@@ -100,7 +129,12 @@ export default function DiscoverPage() {
     <div className="discover-page">
       <div className="discover-page__header">
         <h2 className="discover-page__title">Discover</h2>
-        <span className="discover-page__count">{profiles.length - currentIndex} left</span>
+        <div className="discover-page__header-right">
+          <button className="discover-page__filter-btn" onClick={() => setShowFilters(true)}>
+            <SlidersHorizontal size={18} />
+          </button>
+          <span className="discover-page__count">{profiles.length - currentIndex} left</span>
+        </div>
       </div>
 
       <div className="discover-page__card-area">
@@ -114,6 +148,7 @@ export default function DiscoverPage() {
           onTouchStart={handleDragStart}
           onTouchMove={handleDragMove}
           onTouchEnd={handleDragEnd}
+          onClick={() => setShowFullProfile(true)}
         >
           {/* Photo */}
           <div className="discover-card__photo">
@@ -221,6 +256,37 @@ export default function DiscoverPage() {
             </button>
           ))}
         </div>
+      )}
+
+      {/* Match Modal */}
+      {showMatch && matchedProfile && (
+        <MatchModal
+          profile={matchedProfile}
+          onMessage={() => {
+            setShowMatch(false);
+            navigate(`/chat/${matchedProfile.id}`);
+          }}
+          onKeepSwiping={() => setShowMatch(false)}
+        />
+      )}
+
+      {/* Filter Modal */}
+      {showFilters && (
+        <FilterModal
+          onClose={() => setShowFilters(false)}
+          onApply={(f) => setFilters(f)}
+          initialFilters={filters}
+        />
+      )}
+
+      {/* Full Profile Modal */}
+      {showFullProfile && currentProfile && (
+        <FullProfileModal
+          profile={currentProfile}
+          onClose={() => setShowFullProfile(false)}
+          onLike={() => { setShowFullProfile(false); handleSwipe('right'); }}
+          onMessage={() => { setShowFullProfile(false); navigate(`/chat/${currentProfile.id}`); }}
+        />
       )}
     </div>
   );

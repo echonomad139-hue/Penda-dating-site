@@ -1,5 +1,4 @@
 .app-layout {
-  max-width: 480px;
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -10,12 +9,34 @@
 
 .app-layout__content {
   flex: 1;
-  padding-bottom: 72px;
+  padding-bottom: 72px; /* Space for bottom nav on mobile */
 }
 
+/* Tablet: shift content right for side nav */
 @media (min-width: 768px) {
   .app-layout {
-    max-width: 420px;
-    box-shadow: 0 0 40px rgba(31, 31, 31, 0.08);
+    flex-direction: row;
+  }
+
+  .app-layout__content {
+    margin-left: 220px;
+    padding-bottom: 0;
+    max-width: 600px;
+    width: 100%;
+  }
+}
+
+/* Desktop: wider content area */
+@media (min-width: 1024px) {
+  .app-layout__content {
+    margin-left: 240px;
+    max-width: 700px;
+  }
+}
+
+/* Large screens: center the content */
+@media (min-width: 1280px) {
+  .app-layout__content {
+    max-width: 800px;
   }
 }
