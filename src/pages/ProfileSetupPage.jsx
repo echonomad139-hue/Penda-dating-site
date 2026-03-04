@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Camera, Plus, X } from 'lucide-react';
 import Button from '../components/UI/Button';
 import Input from '../components/UI/Input';
+import useAuthStore from '../store/authSlice';
 import './ProfileSetupPage.css';
 
 const INTEREST_OPTIONS = [
@@ -13,9 +14,18 @@ const INTEREST_OPTIONS = [
 
 export default function ProfileSetupPage() {
   const navigate = useNavigate();
+  const { updateProfile } = useAuthStore();
   const [photos, setPhotos] = useState([null, null, null, null]);
   const [bio, setBio] = useState('');
   const [selectedInterests, setSelectedInterests] = useState([]);
+  const [saving, setSaving] = useState(false);
+
+  const handleContinue = async () => {
+    setSaving(true);
+    await updateProfile({ photos, bio, interests: selectedInterests });
+    setSaving(false);
+    navigate('/discover');
+  };
 
   const completionPercent = useMemo(() => {
     let score = 0;
@@ -143,8 +153,9 @@ export default function ProfileSetupPage() {
 
       <Button
         fullWidth
-        onClick={() => navigate('/discover')}
-        disabled={completionPercent < 40}
+        onClick={handleContinue}
+        disabled={completionPercent < 40 || saving}
+        loading={saving}
       >
         Continue to Discover
       </Button>

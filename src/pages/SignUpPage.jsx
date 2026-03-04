@@ -7,7 +7,7 @@ import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
 import Dropdown from '../components/UI/Dropdown';
 import useAuthStore from '../store/authSlice';
-import { CONTINENTS, COUNTRIES_BY_CONTINENT, GENDER_OPTIONS } from '../config';
+import { CONTINENTS, COUNTRIES_BY_CONTINENT, GENDER_OPTIONS, RELIGION_OPTIONS } from '../config';
 import './SignUpPage.css';
 
 const step1Schema = Yup.object({
@@ -16,11 +16,14 @@ const step1Schema = Yup.object({
   password: Yup.string().min(6, 'At least 6 characters').required('Password is required'),
   gender: Yup.string().required('Please select your gender'),
   date_of_birth: Yup.string().required('Date of birth is required'),
+  religion: Yup.string().required('Religion is required'),
+  tribe: Yup.string().required('Tribe/Ethnicity is required'),
 });
 
 const step2Schema = Yup.object({
   continent: Yup.string().required('Select your continent'),
   country: Yup.string().required('Select your country'),
+  city: Yup.string().required('City is required'),
 });
 
 const step3Schema = Yup.object({
@@ -51,9 +54,12 @@ export default function SignUpPage() {
       email: '',
       password: '',
       gender: '',
+      religion: '',
+      tribe: '',
       date_of_birth: '',
       continent: '',
       country: '',
+      city: '',
       intention: '',
     },
     validationSchema: step === 1 ? step1Schema : step === 2 ? step2Schema : step3Schema,
@@ -62,7 +68,14 @@ export default function SignUpPage() {
         setStep(step + 1);
         return;
       }
-      await register({ ...values, user_type: 'normal' });
+      await register({
+        ...values,
+        user_type: 'normal',
+        display_name: values.name,
+        relationship_intent: values.intention,
+        latitude: null,
+        longitude: null,
+      });
       navigate('/profile-setup');
     },
   });
@@ -183,6 +196,28 @@ export default function SignUpPage() {
               touched={formik.touched.gender}
               placeholder="How do you identify?"
             />
+            <Dropdown
+              label="Religion"
+              name="religion"
+              value={formik.values.religion}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              options={RELIGION_OPTIONS}
+              error={formik.errors.religion}
+              touched={formik.touched.religion}
+              placeholder="Your religion"
+            />
+            <Input
+              label="Tribe / Ethnicity"
+              name="tribe"
+              placeholder="e.g. Kikuyu, Luo, etc."
+              value={formik.values.tribe}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.errors.tribe}
+              touched={formik.touched.tribe}
+              icon={<User size={18} />}
+            />
             <Input
               label="Date of Birth"
               name="date_of_birth"
@@ -224,6 +259,16 @@ export default function SignUpPage() {
               touched={formik.touched.country}
               placeholder={formik.values.continent ? 'Select your country' : 'Select continent first'}
               disabled={!formik.values.continent}
+            />
+            <Input
+              label="City"
+              name="city"
+              placeholder="Which city do you live in?"
+              value={formik.values.city}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.errors.city}
+              touched={formik.touched.city}
             />
           </div>
         )}

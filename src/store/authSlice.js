@@ -14,7 +14,7 @@ const useAuthStore = create((set) => ({
     set({ token, isAuthenticated: true });
   },
 
-  login: async (credentials) => {
+  login: async () => {
     set({ isLoading: true, error: null });
     try {
       // API call will be wired here
@@ -33,6 +33,19 @@ const useAuthStore = create((set) => ({
       const response = { token: 'mock_token', user: userData };
       localStorage.setItem('penda_token', response.token);
       set({ user: response.user, token: response.token, isAuthenticated: true, isLoading: false });
+    } catch (error) {
+      set({ error: error.message, isLoading: false });
+    }
+  },
+
+  updateProfile: async (profileData) => {
+    set({ isLoading: true, error: null });
+    try {
+      // API call will be wired here
+      set((state) => {
+        const updatedUser = { ...state.user, ...profileData };
+        return { user: updatedUser, isLoading: false };
+      });
     } catch (error) {
       set({ error: error.message, isLoading: false });
     }

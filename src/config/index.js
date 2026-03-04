@@ -72,6 +72,15 @@ export const ICEBREAKER_QUESTIONS = [
 
 export const GENDER_OPTIONS = ['Male', 'Female', 'Non-binary', 'Prefer not to say'];
 
+export const RELIGION_OPTIONS = [
+  'Christianity',
+  'Islam',
+  'Hinduism',
+  'Atheism',
+  'Other',
+  'Prefer not to say'
+];
+
 export const USER_TYPES = {
   NORMAL: 'normal',
   WABABA: 'wababa',
