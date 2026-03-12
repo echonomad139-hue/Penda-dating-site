@@ -56,6 +56,43 @@ const useAuthStore = create((set) => ({
     set({ user: null, token: null, isAuthenticated: false });
   },
 
+  requestOTP: async (email) => {
+    set({ isLoading: true, error: null });
+    try {
+      console.debug('Mock request OTP for:', email);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      set({ isLoading: false });
+    } catch (error) {
+      set({ error: error.message, isLoading: false });
+      throw error;
+    }
+  },
+
+  verifyOTP: async (email, otp) => {
+    set({ isLoading: true, error: null });
+    try {
+      console.debug('Mock verify OTP for:', email, otp);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      set({ isLoading: false });
+      return true;
+    } catch (error) {
+      set({ error: error.message, isLoading: false });
+      throw error;
+    }
+  },
+
+  resetPassword: async (email, otp, newPassword) => {
+    set({ isLoading: true, error: null });
+    try {
+      console.debug('Mock reset password for:', email, otp, newPassword);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      set({ isLoading: false });
+    } catch (error) {
+      set({ error: error.message, isLoading: false });
+      throw error;
+    }
+  },
+
   clearError: () => set({ error: null }),
 }));
 

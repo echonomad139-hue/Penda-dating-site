@@ -16,6 +16,7 @@ import PremiumPage from './pages/PremiumPage';
 import SettingsPage from './pages/SettingsPage';
 import NearbyPage from './pages/NearbyPage';
 import EditProfilePage from './pages/EditProfilePage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/profile-setup" element={<ProfileSetupPage />} />
 
           {/* Protected app routes (with bottom nav) */}

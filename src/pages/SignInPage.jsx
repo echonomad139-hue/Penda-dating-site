@@ -72,6 +72,12 @@ export default function SignInPage() {
           </button>
         </div>
 
+        <div className="signin-page__forgot-wrapper">
+          <Link to="/forgot-password" className="signin-page__link signin-page__forgot-link">
+            Forgot Password?
+          </Link>
+        </div>
+
         <Button type="submit" fullWidth loading={isLoading}>
           Sign In
         </Button>
