@@ -86,3 +86,9 @@ export const USER_TYPES = {
   WABABA: 'wababa',
   WAMAMA: 'wamama',
 };
+
+export const OTP_DELIVERY_METHODS = [
+  { id: 'whatsapp', label: 'WhatsApp', emoji: '💬' },
+  { id: 'email', label: 'Email', emoji: '📧' },
+  { id: 'sms', label: 'Text Message (SMS)', emoji: '📱' },
+];

@@ -7,7 +7,8 @@ import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
 import Dropdown from '../components/UI/Dropdown';
 import useAuthStore from '../store/authSlice';
-import { CONTINENTS, COUNTRIES_BY_CONTINENT, GENDER_OPTIONS, RELIGION_OPTIONS } from '../config';
+import toast from 'react-hot-toast';
+import { CONTINENTS, COUNTRIES_BY_CONTINENT, GENDER_OPTIONS, RELIGION_OPTIONS, OTP_DELIVERY_METHODS } from '../config';
 import './SignUpPage.css';
 
 const step1Schema = Yup.object({
@@ -22,7 +23,14 @@ const step1Schema = Yup.object({
 
 const step2Schema = Yup.object({
   continent: Yup.string().required('Select your continent'),
-  country: Yup.string().required('Select your country'),
+  country: Yup.string()
+    .required('Select your country')
+    .test('country-in-continent', 'This country is not in the selected continent', function (value) {
+      const { continent } = this.parent;
+      if (!continent || !value) return true;
+      const validCountries = COUNTRIES_BY_CONTINENT[continent] || [];
+      return validCountries.includes(value);
+    }),
   city: Yup.string().required('City is required'),
 });
 
@@ -44,9 +52,10 @@ const INTENTIONS = [
 
 export default function SignUpPage() {
   const navigate = useNavigate();
-  const { register, isLoading } = useAuthStore();
+  const { setPendingRegistration, requestRegistrationOTP, isLoading } = useAuthStore();
   const [step, setStep] = useState(1);
   const [showPass, setShowPass] = useState(false);
+  const [deliveryMethod, setDeliveryMethod] = useState('email');
 
   const formik = useFormik({
     initialValues: {
@@ -68,15 +77,17 @@ export default function SignUpPage() {
         setStep(step + 1);
         return;
       }
-      await register({
-        ...values,
-        user_type: 'normal',
-        display_name: values.name,
-        relationship_intent: values.intention,
-        latitude: null,
-        longitude: null,
-      });
-      navigate('/profile-setup');
+
+      // Store form data and send OTP instead of registering directly
+      try {
+        setPendingRegistration({ ...values, deliveryMethod });
+        await requestRegistrationOTP(values.email, deliveryMethod);
+        const methodLabel = OTP_DELIVERY_METHODS.find(m => m.id === deliveryMethod)?.label || deliveryMethod;
+        toast.success(`OTP sent via ${methodLabel}`);
+        navigate('/verify-email');
+      } catch (error) {
+        toast.error(error.message || 'Failed to send OTP');
+      }
     },
   });
 
@@ -292,6 +303,23 @@ export default function SignUpPage() {
             {formik.touched.intention && formik.errors.intention && (
               <p className="signup-page__error">{formik.errors.intention}</p>
             )}
+
+            <div className="signup-page__delivery">
+              <label className="signup-page__delivery-label">Receive OTP via</label>
+              <div className="signup-page__delivery-options">
+                {OTP_DELIVERY_METHODS.map((method) => (
+                  <button
+                    key={method.id}
+                    type="button"
+                    className={`signup-page__delivery-btn ${deliveryMethod === method.id ? 'active' : ''}`}
+                    onClick={() => setDeliveryMethod(method.id)}
+                  >
+                    <span>{method.emoji}</span>
+                    <span>{method.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 

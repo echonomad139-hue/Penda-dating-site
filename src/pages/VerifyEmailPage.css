@@ -1,0 +1,118 @@
+.verify-email-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  animation: fade-in 0.5s ease forwards;
+}
+
+.verify-email-page__header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.verify-email-page__icon-ring {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-terracotta));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  box-shadow: 0 6px 20px rgba(181, 72, 94, 0.2);
+  animation: pulse-ring 2s ease-in-out infinite;
+}
+
+.verify-email-page__icon-ring--warn {
+  background: var(--color-muted);
+  box-shadow: none;
+  animation: none;
+}
+
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 6px 20px rgba(181, 72, 94, 0.2); }
+  50%      { box-shadow: 0 6px 28px rgba(181, 72, 94, 0.35); }
+}
+
+.verify-email-page__title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--color-charcoal);
+  margin-bottom: 6px;
+}
+
+.verify-email-page__subtitle {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.verify-email-page__subtitle strong {
+  color: var(--color-charcoal);
+  font-weight: 600;
+}
+
+.verify-email-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.verify-email-page__actions {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.verify-email-page__resend-btn {
+  background: none;
+  border: none;
+  color: var(--color-terracotta);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.verify-email-page__resend-btn:hover {
+  background: rgba(181, 72, 94, 0.06);
+}
+
+.verify-email-page__resend-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.verify-email-page__footer {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.verify-email-page__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-terracotta);
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.verify-email-page__back-link:hover {
+  opacity: 0.8;
+}
+
+.verify-email-page__link {
+  color: var(--color-terracotta);
+  font-weight: 600;
+  text-decoration: none;
+}

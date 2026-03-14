@@ -6,6 +6,7 @@ import { Mail, Lock, Eye, EyeOff, KeyRound } from 'lucide-react';
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
 import useAuthStore from '../store/authSlice';
+import { OTP_DELIVERY_METHODS } from '../config';
 import toast from 'react-hot-toast';
 import './ForgotPasswordPage.css';
 
@@ -38,6 +39,7 @@ export default function ForgotPasswordPage() {
   const [otpCode, setOtpCode] = useState('');
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
+  const [deliveryMethod, setDeliveryMethod] = useState('email');
 
   // Formik for Request OTP
   const requestFormik = useFormik({
@@ -45,9 +47,10 @@ export default function ForgotPasswordPage() {
     validationSchema: requestOtpSchema,
     onSubmit: async (values) => {
       try {
-        await requestOTP(values.email);
+        await requestOTP(values.email, deliveryMethod);
         setEmail(values.email);
-        toast.success('OTP sent to your email');
+        const methodLabel = OTP_DELIVERY_METHODS.find(m => m.id === deliveryMethod)?.label || deliveryMethod;
+        toast.success(`OTP sent via ${methodLabel}`);
         setCurrentStep(STEPS.VERIFY_OTP);
       } catch (error) {
         toast.error(error.message || 'Failed to send OTP');
@@ -96,7 +99,7 @@ export default function ForgotPasswordPage() {
           {currentStep === STEPS.RESET_PASSWORD && 'Reset Password'}
         </h1>
         <p className="forgot-password-page__subtitle">
-          {currentStep === STEPS.REQUEST_OTP && "Enter your email to receive an OTP."}
+          {currentStep === STEPS.REQUEST_OTP && "Enter your email to reset your password."}
           {currentStep === STEPS.VERIFY_OTP && `Enter the 6-digit code sent to ${email}.`}
           {currentStep === STEPS.RESET_PASSWORD && "Create a new strong password."}
         </p>
@@ -116,6 +119,22 @@ export default function ForgotPasswordPage() {
             touched={requestFormik.touched.email}
             icon={<Mail size={18} />}
           />
+          <div className="forgot-password-page__delivery">
+            <label className="forgot-password-page__delivery-label">Send OTP via</label>
+            <div className="forgot-password-page__delivery-options">
+              {OTP_DELIVERY_METHODS.map((method) => (
+                <button
+                  key={method.id}
+                  type="button"
+                  className={`forgot-password-page__delivery-btn ${deliveryMethod === method.id ? 'active' : ''}`}
+                  onClick={() => setDeliveryMethod(method.id)}
+                >
+                  <span>{method.emoji}</span>
+                  <span>{method.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
           <Button type="submit" fullWidth loading={isLoading}>
             Send OTP
           </Button>

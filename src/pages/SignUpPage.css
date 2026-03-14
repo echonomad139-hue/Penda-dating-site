@@ -190,3 +190,52 @@
   color: var(--color-terracotta);
   font-weight: 600;
 }
+
+/* OTP Delivery Method Selector */
+.signup-page__delivery {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-sand-dark);
+}
+
+.signup-page__delivery-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.signup-page__delivery-options {
+  display: flex;
+  gap: 8px;
+}
+
+.signup-page__delivery-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-sand-dark);
+  background: var(--color-warm-white);
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.signup-page__delivery-btn:hover {
+  border-color: var(--color-terracotta);
+  color: var(--color-charcoal);
+}
+
+.signup-page__delivery-btn.active {
+  border-color: var(--color-terracotta);
+  background: rgba(181, 72, 94, 0.08);
+  color: var(--color-terracotta);
+}

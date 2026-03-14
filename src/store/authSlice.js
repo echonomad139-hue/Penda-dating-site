@@ -6,6 +6,7 @@ const useAuthStore = create((set) => ({
   isAuthenticated: !!localStorage.getItem('penda_token'),
   isLoading: false,
   error: null,
+  pendingRegistration: null,
 
   setUser: (user) => set({ user, isAuthenticated: true }),
 
@@ -53,13 +54,42 @@ const useAuthStore = create((set) => ({
 
   logout: () => {
     localStorage.removeItem('penda_token');
-    set({ user: null, token: null, isAuthenticated: false });
+    set({ user: null, token: null, isAuthenticated: false, pendingRegistration: null });
   },
 
-  requestOTP: async (email) => {
+  setPendingRegistration: (data) => set({ pendingRegistration: data }),
+
+  clearPendingRegistration: () => set({ pendingRegistration: null }),
+
+  requestRegistrationOTP: async (email, deliveryMethod = 'email') => {
     set({ isLoading: true, error: null });
     try {
-      console.debug('Mock request OTP for:', email);
+      console.debug('Mock request registration OTP for:', email, 'via', deliveryMethod);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      set({ isLoading: false });
+    } catch (error) {
+      set({ error: error.message, isLoading: false });
+      throw error;
+    }
+  },
+
+  verifyRegistrationOTP: async (email, otp) => {
+    set({ isLoading: true, error: null });
+    try {
+      console.debug('Mock verify registration OTP for:', email, otp);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      set({ isLoading: false });
+      return true;
+    } catch (error) {
+      set({ error: error.message, isLoading: false });
+      throw error;
+    }
+  },
+
+  requestOTP: async (email, deliveryMethod = 'email') => {
+    set({ isLoading: true, error: null });
+    try {
+      console.debug('Mock request OTP for:', email, 'via', deliveryMethod);
       await new Promise(resolve => setTimeout(resolve, 1000));
       set({ isLoading: false });
     } catch (error) {
