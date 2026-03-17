@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    bootstrap="tests/Bootstrap.php"
+    colors="true"
+    verbose="true"
+    stopOnFailure="false"
+    beStrictAboutTestsThatDoNotTestAnything="true"
+    backupGlobals="false"
+    backupStaticAttributes="false"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    processIsolation="false"
+    failOnRisky="true"
+    failOnWarning="true"
+    syntaxCheck="true"
+>
+
+    <!-- Environment variables -->
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_DEBUG" value="1"/>
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_HOST" value="127.0.0.1"/>
+        <env name="DB_PORT" value="3306"/>
+        <env name="DB_DATABASE" value="Penda-backend"/>
+        <env name="DB_USERNAME" value="root"/>
+        <env name="DB_PASSWORD" value=""/>
+        <env name="REDIS_HOST" value="127.0.0.1"/>
+        <env name="REDIS_PORT" value="6379"/>
+        <env name="CLOUDINARY_CLOUD" value="your_cloud"/>
+        <env name="CLOUDINARY_API_KEY" value="your_api_key"/>
+        <env name="CLOUDINARY_API_SECRET" value="your_api_secret"/>
+    </php>
+
+    <!-- Directories -->
+    <testsuites>
+        <testsuite name="Unit Tests">
+            <directory suffix="Test.php">tests/Unit/Models</directory>
+            <directory suffix="Test.php">tests/Unit/Services</directory>
+            <directory suffix="Test.php">tests/Unit/Middleware</directory>
+        </testsuite>
+
+        <testsuite name="Feature Tests">
+            <directory suffix="Test.php">tests/Feature/Routes</directory>
+        </testsuite>
+
+        <testsuite name="EndToEnd Tests">
+            <directory suffix="Test.php">tests/EndToEnd</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- Logging -->
+    <logging>
+        <log type="coverage-html" target="storage/logs/coverage-html"/>
+        <log type="coverage-clover" target="storage/logs/coverage.xml"/>
+        <log type="testdox-html" target="storage/logs/testdox.html"/>
+        <log type="junit" target="storage/logs/junit.xml"/>
+        <log type="coverage-text" target="php://stdout"/>
+    </logging>
+
+    <!-- Coverage settings -->
+    <coverage processUncoveredFiles="true" includeUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">app/Controllers</directory>
+            <directory suffix=".php">app/Models</directory>
+            <directory suffix=".php">app/Services</directory>
+            <directory suffix=".php">app/Middleware</directory>
+        </include>
+        <exclude>
+            <directory suffix=".php">app/Helpers</directory>
+            <directory suffix=".php">app/Config</directory>
+            <directory suffix=".php">public</directory>
+            <directory suffix=".php">scripts</directory>
+        </exclude>
+    </coverage>
+
+    <!-- Filters -->
+    <filter>
+        <whitelist processUncoveredFiles="true">
+            <directory suffix=".php">app/Controllers</directory>
+            <directory suffix=".php">app/Models</directory>
+            <directory suffix=".php">app/Services</directory>
+            <directory suffix=".php">app/Middleware</directory>
+        </whitelist>
+    </filter>
+
+    <!-- Execution order and constraints -->
+    <execution>
+        <parallel>
+            <processes>4</processes>
+        </parallel>
+        <resolveDependencies>true</resolveDependencies>
+    </execution>
+
+    <!-- Reporting -->
+    <listeners>
+        <listener class="PHPUnit\Util\TestDox\TextUI\TestDoxPrinter"/>
+    </listeners>
+
+</phpunit>

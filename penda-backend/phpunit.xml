@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+         colors="true"
+         verbose="true"
+         stopOnFailure="false"
+         strictCoverage="true"
+         backupGlobals="false">
+         
+    <testsuites>
+        <testsuite name="Penda Backend Tests">
+            <directory>./tests/Unit</directory>
+            <directory>./tests/Feature</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="DB_HOST" value="127.0.0.1"/>
+        <env name="DB_NAME" value="Penda-backend"/>
+        <env name="DB_USER" value="root"/>
+        <env name="DB_PASS" value=""/>
+        <env name="REDIS_HOST" value="127.0.0.1"/>
+        <env name="REDIS_PORT" value="6379"/>
+        <env name="CLOUDINARY_CLOUD" value="your_cloud_name"/>
+        <env name="CLOUDINARY_API_KEY" value="your_api_key"/>
+        <env name="CLOUDINARY_API_SECRET" value="your_api_secret"/>
+    </php>
+
+    <logging>
+        <log type="coverage-html" target="storage/logs/coverage" charset="UTF-8"/>
+        <log type="junit" target="storage/logs/junit.xml" logIncompleteSkipped="true"/>
+    </logging>
+</phpunit>

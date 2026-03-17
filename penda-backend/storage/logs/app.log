@@ -1,0 +1,67 @@
+[2026-02-25 00:14:26] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Empty request body
+[2026-02-25 00:44:50] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Empty request body
+[2026-02-25 00:44:51] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Empty request body
+[2026-02-25 00:47:16] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Empty request body
+[2026-02-25 00:57:32] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Class "App\Routes\RouteDispatcher" not found
+[2026-02-25 00:58:17] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Empty request body
+[2026-02-25 01:07:07] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Class "App\Routes\RouteDispatcher" not found
+[2026-02-25 02:06:49] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Class "App\Routes\RouteDispatcher" not found
+[2026-02-25 02:31:55] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Failed opening required 'C:\xampp19\htdocs\Penda-backend/app/Routes/RouteDispatcher.php' (include_path='C:\xampp19\php\PEAR')
+[2026-02-25 02:36:31] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Failed opening required 'C:\xampp19\htdocs\Penda-backend/app/Routes/RouteDispatcher.php' (include_path='C:\xampp19\php\PEAR')
+[2026-02-25 02:36:33] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Failed opening required 'C:\xampp19\htdocs\Penda-backend/app/Routes/RouteDispatcher.php' (include_path='C:\xampp19\php\PEAR')
+[2026-02-25 02:37:00] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request:  Response: Failed opening required 'C:\xampp19\htdocs\Penda-backend/app/Routes/RouteDispatcher.php' (include_path='C:\xampp19\php\PEAR')
+[2026-02-25 02:40:13] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/index.php not found"}
+[2026-02-25 02:40:27] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/index.php not found"}
+[2026-02-25 02:41:25] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 02:42:16] User:  Endpoint: /Penda-backend/public/index.php Method: POST Request: {"password_hash":"10489635","phone":"0710484154"} Response: {"success":true,"message":"Received phone and password","data":{"password_hash":"10489635","phone":"0710484154"}}
+[2026-02-25 02:51:17] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 11:54:45] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 11:54:45] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:15:33] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:15:37] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/ not found"}
+[2026-02-25 12:15:48] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/ not found"}
+[2026-02-25 12:17:22] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/ not found"}
+[2026-02-25 12:17:23] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/ not found"}
+[2026-02-25 12:17:25] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/ not found"}
+[2026-02-25 12:17:27] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/ not found"}
+[2026-02-25 12:17:38] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/ not found"}
+[2026-02-25 12:17:39] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/ not found"}
+[2026-02-25 12:18:02] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/ not found"}
+[2026-02-25 12:18:06] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:18:19] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:18:30] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:18:31] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:18:33] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:18:33] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:18:34] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:18:34] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:18:42] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:18:43] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:28:29] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:28:31] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:28:32] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 12:28:39] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":false,"message":"Route \/Penda-backend\/public\/ not found"}
+[2026-02-25 15:26:55] User:  Endpoint: /Penda-backend/public/index.php Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 16:02:43] User:  Endpoint: /Penda-backend/public/ Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 16:02:43] User:  Endpoint: /favicon.ico Method: GET Request: [] Response: {"success":false,"message":"Route \/favicon.ico not found"}
+[2026-02-25 16:03:27] User:  Endpoint: /dashboard/ Method: GET Request: [] Response: {"success":false,"message":"Route \/dashboard not found"}
+[2026-02-25 16:03:27] User:  Endpoint: /favicon.ico Method: GET Request: [] Response: {"success":false,"message":"Route \/favicon.ico not found"}
+[2026-02-25 16:15:44] User:  Endpoint: / Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 16:15:45] User:  Endpoint: / Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 16:15:45] User:  Endpoint: /favicon.ico Method: GET Request: [] Response: {"success":false,"message":"Route \/favicon.ico not found"}
+[2026-02-25 16:18:54] User:  Endpoint: / Method: GET Request: [] Response: {"success":true,"message":"Welcome to Penda API (GET)"}
+[2026-02-25 16:18:55] User:  Endpoint: /favicon.ico Method: GET Request: [] Response: {"success":false,"message":"Route \/favicon.ico not found"}
+[2026-02-25 16:21:12] User:  Endpoint: /register Method: POST Request: {"phone":"0710484154","password_hash":"10489635"} Response: {"success":true,"message":"User registration received","data":{"phone":"0710484154","password_hash":"10489635"}}
+[2026-02-25 16:22:08] User:  Endpoint: /register Method: POST Request: {"phone":"0710484154","password_hash":"10489635"} Response: {"success":true,"message":"User registration received","data":{"phone":"0710484154","password_hash":"10489635"}}
+[2026-02-25 16:23:26] User:  Endpoint: /test_post.php Method: GET Request: [] Response: {"success":false,"message":"Route \/test_post.php not found"}
+[2026-02-25 16:23:27] User:  Endpoint: /favicon.ico Method: GET Request: [] Response: {"success":false,"message":"Route \/favicon.ico not found"}
+[2026-02-25 16:25:16] User:  Endpoint: /test_post.php Method: GET Request: [] Response: {"success":false,"message":"Route \/test_post.php not found"}
+[2026-02-25 16:25:16] User:  Endpoint: /favicon.ico Method: GET Request: [] Response: {"success":false,"message":"Route \/favicon.ico not found"}
+[2026-02-25 16:25:17] User:  Endpoint: /test_post.php Method: GET Request: [] Response: {"success":false,"message":"Route \/test_post.php not found"}
+[2026-02-25 16:25:17] User:  Endpoint: /favicon.ico Method: GET Request: [] Response: {"success":false,"message":"Route \/favicon.ico not found"}
+[2026-02-25 16:27:31] User:  Endpoint: /test_post.php Method: GET Request: [] Response: {"success":false,"message":"Route \/test_post.php not found"}
+[2026-02-25 16:27:31] User:  Endpoint: /favicon.ico Method: GET Request: [] Response: {"success":false,"message":"Route \/favicon.ico not found"}
+[2026-02-25 16:27:32] User:  Endpoint: /test_post.php Method: GET Request: [] Response: {"success":false,"message":"Route \/test_post.php not found"}
+[2026-02-25 16:27:33] User:  Endpoint: /favicon.ico Method: GET Request: [] Response: {"success":false,"message":"Route \/favicon.ico not found"}
+[2026-02-25 16:27:33] User:  Endpoint: /test_post.php Method: GET Request: [] Response: {"success":false,"message":"Route \/test_post.php not found"}
+[2026-02-25 16:27:33] User:  Endpoint: /favicon.ico Method: GET Request: [] Response: {"success":false,"message":"Route \/favicon.ico not found"}
